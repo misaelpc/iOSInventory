@@ -9,9 +9,10 @@
 #import "ItemsTableViewController.h"
 #import "GoNetItem.h"
 #import "GonetItemsStore.h"
+#import "ItemDetailViewController.h"
 
 @interface ItemsTableViewController ()
-
+@property (nonatomic, strong) IBOutlet UIView *headerView;
 @end
 
 @implementation ItemsTableViewController
@@ -20,11 +21,6 @@
 {
   // Call the superclass's designated initializer
   self = [super initWithStyle:UITableViewStylePlain];
-  if (self) {
-    for (int i = 0; i < 500; i++) {
-      [[GonetItemsStore sharedStore] createItem];
-    }
-  }
   return self;
 }
 
@@ -36,12 +32,42 @@
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
+    UIView *header = self.headerView;
+    [self.tableView setTableHeaderView:header];
+}
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+- (IBAction)addNewItem:(id)sender
+{
+  GonetItemsStore *store = [GonetItemsStore sharedStore];
+  GoNetItem *item = [store createItem];
+  NSInteger lastRow = [[store allItems] indexOfObject: item];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+  
+  // Insert this new row into the table.
+  [self.tableView insertRowsAtIndexPaths:@[indexPath]
+                withRowAnimation:UITableViewRowAnimationTop];
+}
+
+- (IBAction)toggleEditingMode:(id)sender
+{
+  if (self.isEditing) {
+    [sender setTitle:@"Edit" forState:UIControlStateNormal];
+    [self setEditing:NO animated:YES];
+  } else {
+    [sender setTitle:@"Done" forState:UIControlStateNormal];
+    [self setEditing:YES animated:YES];
+  }
+}
+
+- (UIView *)headerView
+{
+  if (!_headerView) {
+    // Load HeaderView.xib
+    [[NSBundle mainBundle] loadNibNamed:@"HeaderView"
+                                  owner:self
+                                options:nil];
+  }
+  return _headerView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,6 +96,14 @@
   return cell;
 }
 
+- (void)tableView:(UITableView *)tableView
+moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+      toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+  [[GonetItemsStore sharedStore] moveItemAtIndex: sourceIndexPath.row toIndex: destinationIndexPath.row];
+}
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,18 +112,25 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+      NSArray *items = [[GonetItemsStore sharedStore] allItems];
+      GoNetItem *item = items[indexPath.row];
+      [[GonetItemsStore sharedStore] removeItem: item];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+  ItemDetailViewController * detailController = [[ItemDetailViewController alloc] init];
+  
+  //detailController.item = ???
+  
+  [self.navigationController pushViewController:detailController animated:YES];
+}
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {

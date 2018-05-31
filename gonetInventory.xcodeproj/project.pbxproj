@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C14944B20C06136005BBE5F /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C14944A20C06136005BBE5F /* HeaderView.xib */; };
+		0C14945320C09E21005BBE5F /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C14945120C09E21005BBE5F /* ItemDetailViewController.m */; };
+		0C14945420C09E21005BBE5F /* ItemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C14945220C09E21005BBE5F /* ItemDetailViewController.xib */; };
 		0C14EE6D20BF1C1700A28ADF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EE6C20BF1C1700A28ADF /* AppDelegate.m */; };
 		0C14EE7020BF1C1700A28ADF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EE6F20BF1C1700A28ADF /* ViewController.m */; };
 		0C14EE7320BF1C1700A28ADF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C14EE7120BF1C1700A28ADF /* Main.storyboard */; };
@@ -19,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C14944A20C06136005BBE5F /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		0C14945020C09E21005BBE5F /* ItemDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
+		0C14945120C09E21005BBE5F /* ItemDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
+		0C14945220C09E21005BBE5F /* ItemDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailViewController.xib; sourceTree = "<group>"; };
 		0C14EE6820BF1C1700A28ADF /* gonetInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gonetInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C14EE6B20BF1C1700A28ADF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0C14EE6C20BF1C1700A28ADF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,6 +55,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C14944C20C06154005BBE5F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0C14EE8220BF1D1300A28ADF /* ItemsTableViewController.m */,
+				0C14EE8120BF1D1300A28ADF /* ItemsTableViewController.h */,
+				0C14EE6F20BF1C1700A28ADF /* ViewController.m */,
+				0C14EE6E20BF1C1700A28ADF /* ViewController.h */,
+				0C14945020C09E21005BBE5F /* ItemDetailViewController.h */,
+				0C14945120C09E21005BBE5F /* ItemDetailViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0C14944D20C06161005BBE5F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C14945220C09E21005BBE5F /* ItemDetailViewController.xib */,
+				0C14944A20C06136005BBE5F /* HeaderView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0C14944E20C06168005BBE5F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0C14EE8820BF424E00A28ADF /* GonetItemsStore.m */,
+				0C14EE8720BF424E00A28ADF /* GonetItemsStore.h */,
+				0C14EE8520BF23A700A28ADF /* GoNetItem.m */,
+				0C14EE8420BF23A700A28ADF /* GoNetItem.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0C14944F20C0617C005BBE5F /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				0C14EE7620BF1C1A00A28ADF /* LaunchScreen.storyboard */,
+				0C14EE7120BF1C1700A28ADF /* Main.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
 		0C14EE5F20BF1C1700A28ADF = {
 			isa = PBXGroup;
 			children = (
@@ -67,21 +116,15 @@
 		0C14EE6A20BF1C1700A28ADF /* gonetInventory */ = {
 			isa = PBXGroup;
 			children = (
+				0C14944F20C0617C005BBE5F /* StoryBoards */,
+				0C14944E20C06168005BBE5F /* Models */,
+				0C14944D20C06161005BBE5F /* Views */,
+				0C14944C20C06154005BBE5F /* Controllers */,
 				0C14EE6B20BF1C1700A28ADF /* AppDelegate.h */,
 				0C14EE6C20BF1C1700A28ADF /* AppDelegate.m */,
-				0C14EE6E20BF1C1700A28ADF /* ViewController.h */,
-				0C14EE6F20BF1C1700A28ADF /* ViewController.m */,
-				0C14EE7120BF1C1700A28ADF /* Main.storyboard */,
 				0C14EE7420BF1C1A00A28ADF /* Assets.xcassets */,
-				0C14EE7620BF1C1A00A28ADF /* LaunchScreen.storyboard */,
 				0C14EE7920BF1C1A00A28ADF /* Info.plist */,
 				0C14EE7A20BF1C1A00A28ADF /* main.m */,
-				0C14EE8120BF1D1300A28ADF /* ItemsTableViewController.h */,
-				0C14EE8220BF1D1300A28ADF /* ItemsTableViewController.m */,
-				0C14EE8420BF23A700A28ADF /* GoNetItem.h */,
-				0C14EE8520BF23A700A28ADF /* GoNetItem.m */,
-				0C14EE8720BF424E00A28ADF /* GonetItemsStore.h */,
-				0C14EE8820BF424E00A28ADF /* GonetItemsStore.m */,
 			);
 			path = gonetInventory;
 			sourceTree = "<group>";
@@ -145,7 +188,9 @@
 			files = (
 				0C14EE7820BF1C1A00A28ADF /* LaunchScreen.storyboard in Resources */,
 				0C14EE7520BF1C1A00A28ADF /* Assets.xcassets in Resources */,
+				0C14945420C09E21005BBE5F /* ItemDetailViewController.xib in Resources */,
 				0C14EE7320BF1C1700A28ADF /* Main.storyboard in Resources */,
+				0C14944B20C06136005BBE5F /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +203,7 @@
 			files = (
 				0C14EE8620BF23A700A28ADF /* GoNetItem.m in Sources */,
 				0C14EE7020BF1C1700A28ADF /* ViewController.m in Sources */,
+				0C14945320C09E21005BBE5F /* ItemDetailViewController.m in Sources */,
 				0C14EE8920BF424E00A28ADF /* GonetItemsStore.m in Sources */,
 				0C14EE7B20BF1C1A00A28ADF /* main.m in Sources */,
 				0C14EE8320BF1D1300A28ADF /* ItemsTableViewController.m in Sources */,

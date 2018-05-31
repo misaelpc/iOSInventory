@@ -14,5 +14,8 @@
 
 + (instancetype)sharedStore;
 - (GoNetItem *)createItem;
+- (void)removeItem:(GoNetItem *)item;
+- (void)moveItemAtIndex:(NSUInteger)fromIndex
+                toIndex:(NSUInteger)toIndex;
 
 @end
