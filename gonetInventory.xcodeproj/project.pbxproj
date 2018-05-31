@@ -13,6 +13,9 @@
 		0C14EE7520BF1C1A00A28ADF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C14EE7420BF1C1A00A28ADF /* Assets.xcassets */; };
 		0C14EE7820BF1C1A00A28ADF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C14EE7620BF1C1A00A28ADF /* LaunchScreen.storyboard */; };
 		0C14EE7B20BF1C1A00A28ADF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EE7A20BF1C1A00A28ADF /* main.m */; };
+		0C14EE8320BF1D1300A28ADF /* ItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EE8220BF1D1300A28ADF /* ItemsTableViewController.m */; };
+		0C14EE8620BF23A700A28ADF /* GoNetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EE8520BF23A700A28ADF /* GoNetItem.m */; };
+		0C14EE8920BF424E00A28ADF /* GonetItemsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C14EE8820BF424E00A28ADF /* GonetItemsStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		0C14EE7720BF1C1A00A28ADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C14EE7920BF1C1A00A28ADF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C14EE7A20BF1C1A00A28ADF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0C14EE8120BF1D1300A28ADF /* ItemsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemsTableViewController.h; sourceTree = "<group>"; };
+		0C14EE8220BF1D1300A28ADF /* ItemsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemsTableViewController.m; sourceTree = "<group>"; };
+		0C14EE8420BF23A700A28ADF /* GoNetItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoNetItem.h; sourceTree = "<group>"; };
+		0C14EE8520BF23A700A28ADF /* GoNetItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoNetItem.m; sourceTree = "<group>"; };
+		0C14EE8720BF424E00A28ADF /* GonetItemsStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GonetItemsStore.h; sourceTree = "<group>"; };
+		0C14EE8820BF424E00A28ADF /* GonetItemsStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GonetItemsStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +76,12 @@
 				0C14EE7620BF1C1A00A28ADF /* LaunchScreen.storyboard */,
 				0C14EE7920BF1C1A00A28ADF /* Info.plist */,
 				0C14EE7A20BF1C1A00A28ADF /* main.m */,
+				0C14EE8120BF1D1300A28ADF /* ItemsTableViewController.h */,
+				0C14EE8220BF1D1300A28ADF /* ItemsTableViewController.m */,
+				0C14EE8420BF23A700A28ADF /* GoNetItem.h */,
+				0C14EE8520BF23A700A28ADF /* GoNetItem.m */,
+				0C14EE8720BF424E00A28ADF /* GonetItemsStore.h */,
+				0C14EE8820BF424E00A28ADF /* GonetItemsStore.m */,
 			);
 			path = gonetInventory;
 			sourceTree = "<group>";
@@ -141,8 +156,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C14EE8620BF23A700A28ADF /* GoNetItem.m in Sources */,
 				0C14EE7020BF1C1700A28ADF /* ViewController.m in Sources */,
+				0C14EE8920BF424E00A28ADF /* GonetItemsStore.m in Sources */,
 				0C14EE7B20BF1C1A00A28ADF /* main.m in Sources */,
+				0C14EE8320BF1D1300A28ADF /* ItemsTableViewController.m in Sources */,
 				0C14EE6D20BF1C1700A28ADF /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
