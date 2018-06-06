@@ -21,6 +21,16 @@
 {
   // Call the superclass's designated initializer
   self = [super initWithStyle:UITableViewStylePlain];
+  if (self) {
+    UINavigationItem *navItem = self.navigationItem;
+    navItem.title = @"Inventory";
+    UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
+      initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                           target:self
+                           action:@selector(addNewItem:)];
+    navItem.rightBarButtonItem = bbi;
+    navItem.leftBarButtonItem = self.editButtonItem;
+  }
   return self;
 }
 
@@ -32,8 +42,6 @@
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
-    UIView *header = self.headerView;
-    [self.tableView setTableHeaderView:header];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -61,17 +69,6 @@
     [sender setTitle:@"Done" forState:UIControlStateNormal];
     [self setEditing:YES animated:YES];
   }
-}
-
-- (UIView *)headerView
-{
-  if (!_headerView) {
-    // Load HeaderView.xib
-    [[NSBundle mainBundle] loadNibNamed:@"HeaderView"
-                                  owner:self
-                                options:nil];
-  }
-  return _headerView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,7 +130,6 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
   NSArray *items = [[GonetItemsStore sharedStore] allItems];
   GoNetItem *item = items[indexPath.row];
   [detailController setItem:item];
-  
   [self.navigationController pushViewController:detailController animated:YES];
 }
 /*

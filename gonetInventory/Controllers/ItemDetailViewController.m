@@ -36,6 +36,11 @@
   _item.valueInDollars = [_valueTextField.text intValue];
 }
 
+- (void)setItem:(GoNetItem *)item {
+  _item = item;
+  self.navigationItem.title = _item.itemName;
+}
+
 - (NSString *) formatDate:(NSDate *) date {
   static NSDateFormatter *dateFormatter;
   if (!dateFormatter) {
@@ -50,6 +55,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)backButtonWasTouchedUpInside:(id)sender {
+  //[self.navigationController popToRootViewControllerAnimated:YES];
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
