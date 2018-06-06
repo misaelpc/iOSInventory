@@ -22,8 +22,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   _nameTextField.text = _item.itemName;
-    // Do any additional setup after loading the view from its nib.
+  _serialTextField.text = _item.serialNumber;
+  _valueTextField.text = [[NSString alloc]
+                          initWithFormat: @"%d", _item.valueInDollars];
+  _dateLabel.text = [self formatDate: _item.dateCreated];
+  // Do any additional setup after loading the view from its nib.
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+  [super viewWillDisappear:animated];
+  _item.itemName = _nameTextField.text;
+  _item.serialNumber = _serialTextField.text;
+  _item.valueInDollars = [_valueTextField.text intValue];
+}
+
+- (NSString *) formatDate:(NSDate *) date {
+  static NSDateFormatter *dateFormatter;
+  if (!dateFormatter) {
+    dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+  }
+  return [dateFormatter stringFromDate:date];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

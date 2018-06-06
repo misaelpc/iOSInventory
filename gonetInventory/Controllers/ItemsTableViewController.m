@@ -36,6 +36,10 @@
     [self.tableView setTableHeaderView:header];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+  [self.tableView reloadData];
+}
+
 - (IBAction)addNewItem:(id)sender
 {
   GonetItemsStore *store = [GonetItemsStore sharedStore];
@@ -126,8 +130,9 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   
   ItemDetailViewController * detailController = [[ItemDetailViewController alloc] init];
-  
-  //detailController.item = ???
+  NSArray *items = [[GonetItemsStore sharedStore] allItems];
+  GoNetItem *item = items[indexPath.row];
+  [detailController setItem:item];
   
   [self.navigationController pushViewController:detailController animated:YES];
 }
